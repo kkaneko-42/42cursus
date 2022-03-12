@@ -16,6 +16,8 @@ Account::Account( int initial_deposit )
 
 	this->_accountIndex = index;
 	this->_amount = initial_deposit;
+	this->_nbDeposits = 0;
+	this->_nbWithdrawals = 0;
 	Account::_nbAccounts += 1;
 	Account::_totalAmount += this->_amount;
 
