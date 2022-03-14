@@ -6,7 +6,7 @@
 /*   By: kkaneko <kkaneko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 01:48:53 by kkaneko           #+#    #+#             */
-/*   Updated: 2022/03/15 02:42:14 by kkaneko          ###   ########.fr       */
+/*   Updated: 2022/03/15 03:09:58 by kkaneko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 
 
 static int		validate_param(t_matrix *src);
-static t_matrix	*cal_submat(t_matrix *src, size_t rm_row, size_t rm_col);
+static t_matrix	*make_submat(t_matrix *src, size_t rm_row, size_t rm_col);
+static void		cal_submat(t_matrix *res, t_matrix *src, size_t rm_row, size_t rm_col);
 static t_matrix	*cal_adj_mat(t_matrix *src);
-static int		int_pow(int a, int b);
+static int		cal_sgn(size_t exp);
 
 //calculate by definition
 t_matrix	*mat_inv(t_matrix *src)
@@ -28,6 +29,7 @@ t_matrix	*mat_inv(t_matrix *src)
 	if (validate_param(src))
 		return (NULL);
 	adj = cal_adj_mat(src);
+	mat_print(adj);
 	res = mat_mul_scalar(1 / mat_det(src), adj);
 	mat_free(adj);
 	return (res);
@@ -48,8 +50,8 @@ static t_matrix	*cal_adj_mat(t_matrix *src)
 		j = 0;
 		while (j < src->col)
 		{
-			submat = cal_submat(src, i, j);
-			res->values[i][j] = int_pow(-1, i + j + 2) * mat_det(submat);
+			submat = make_submat(src, i, j);
+			res->values[i][j] = cal_sgn(i + j + 2) * mat_det(submat);
 			mat_free(submat);
 			++j;
 		}
@@ -61,15 +63,22 @@ static t_matrix	*cal_adj_mat(t_matrix *src)
 	return (res);
 }
 
-static t_matrix	*cal_submat(t_matrix *src, size_t rm_row, size_t rm_col)
+static t_matrix	*make_submat(t_matrix *src, size_t rm_row, size_t rm_col)
+{
+	t_matrix	*res;
+
+	res = mat_new(src->row - 1, src->col - 1);
+	cal_submat(res, src, rm_row, rm_col);
+	return (res);
+}
+
+static void	cal_submat(t_matrix *res, t_matrix *src, size_t rm_row, size_t rm_col)
 {
 	size_t		src_i;
 	size_t		src_j;
 	size_t		dst_i;
 	size_t		dst_j;
-	t_matrix	*res;
 
-	res = mat_new(src->row - 1, src->col - 1);
 	src_i = 0;
 	dst_i = 0;
 	while (src_i < src->row)
@@ -88,17 +97,14 @@ static t_matrix	*cal_submat(t_matrix *src, size_t rm_row, size_t rm_col)
 		}
 		++src_i;
 	}
-	return (res);
 }
 
-static int	int_pow(int a, int b)
+static int	cal_sgn(size_t exp)
 {
-	if (b == 0)
+	if (exp % 2 == 0)
 		return (1);
-	else if (b == 1)
-		return (a);
 	else
-		return (int_pow(a, b - 1) * int_pow(a, b - 2));
+		return (-1);
 }
 
 static int	validate_param(t_matrix *src)
@@ -112,23 +118,3 @@ static int	validate_param(t_matrix *src)
 	}
 	return (0);
 }
-/*
-//debug
-#include <stdio.h>
-int main(void)
-{
-	t_matrix	*mat = mat_new(3, 3);
-	double	**values = mat->values;
-
-	values[0][0] = 7;
-	values[0][1] = 2;
-	values[0][2] = 8;
-	values[1][0] = 8;
-	values[1][1] = 2;
-	values[1][2] = 7;
-	values[2][0] = 8;
-	values[2][1] = 5;
-	mat_print(mat_inv(mat));
-	return (0);
-}
-*/
