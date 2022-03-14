@@ -6,17 +6,16 @@
 /*   By: kkaneko <kkaneko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 01:48:53 by kkaneko           #+#    #+#             */
-/*   Updated: 2022/03/15 03:09:58 by kkaneko          ###   ########.fr       */
+/*   Updated: 2022/03/15 03:13:54 by kkaneko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libmat.h"
-#include <stdio.h>
-
 
 static int		validate_param(t_matrix *src);
 static t_matrix	*make_submat(t_matrix *src, size_t rm_row, size_t rm_col);
-static void		cal_submat(t_matrix *res, t_matrix *src, size_t rm_row, size_t rm_col);
+static void		cal_submat(
+					t_matrix *res, t_matrix *src, size_t rm_row, size_t rm_col);
 static t_matrix	*cal_adj_mat(t_matrix *src);
 static int		cal_sgn(size_t exp);
 
@@ -72,7 +71,8 @@ static t_matrix	*make_submat(t_matrix *src, size_t rm_row, size_t rm_col)
 	return (res);
 }
 
-static void	cal_submat(t_matrix *res, t_matrix *src, size_t rm_row, size_t rm_col)
+static void	cal_submat(
+				t_matrix *res, t_matrix *src, size_t rm_row, size_t rm_col)
 {
 	size_t		src_i;
 	size_t		src_j;

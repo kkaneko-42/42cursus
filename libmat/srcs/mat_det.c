@@ -6,7 +6,7 @@
 /*   By: kkaneko <kkaneko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 00:15:48 by kkaneko           #+#    #+#             */
-/*   Updated: 2022/03/15 03:09:53 by kkaneko          ###   ########.fr       */
+/*   Updated: 2022/03/15 03:14:14 by kkaneko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 static t_matrix	*make_submat(t_matrix *src, size_t rm_row, size_t rm_col);
 static int		cal_sgn(size_t exp);
 static int		validate_param(t_matrix *mat);
-static void		cal_submat(t_matrix *res, t_matrix *src, size_t rm_row, size_t rm_col);
+static void		cal_submat(
+					t_matrix *res, t_matrix *src, size_t rm_row, size_t rm_col);
 
 //using cofactor expansion(in col 1)
 double	mat_det(t_matrix *mat)
@@ -49,7 +50,8 @@ static t_matrix	*make_submat(t_matrix *src, size_t rm_row, size_t rm_col)
 	return (res);
 }
 
-static void	cal_submat(t_matrix *res, t_matrix *src, size_t rm_row, size_t rm_col)
+static void	cal_submat(
+				t_matrix *res, t_matrix *src, size_t rm_row, size_t rm_col)
 {
 	size_t		src_i;
 	size_t		src_j;

@@ -6,13 +6,13 @@
 /*   By: kkaneko <kkaneko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 02:58:03 by kkaneko           #+#    #+#             */
-/*   Updated: 2022/03/15 02:58:34 by kkaneko          ###   ########.fr       */
+/*   Updated: 2022/03/15 03:14:44 by kkaneko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libmat.h"
 #include <stdio.h>
-
+/*
 int main(void)
 {
 	t_matrix	*mat = mat_new(3, 3);
@@ -29,3 +29,4 @@ int main(void)
 	mat_print(mat_inv(mat));
 	return (0);
 }
+*/
