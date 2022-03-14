@@ -6,7 +6,7 @@
 /*   By: kkaneko <kkaneko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 21:28:01 by kkaneko           #+#    #+#             */
-/*   Updated: 2022/03/15 02:43:18 by kkaneko          ###   ########.fr       */
+/*   Updated: 2022/03/15 03:24:00 by kkaneko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ t_matrix	*mat_mul(t_matrix *a, t_matrix *b);
 t_matrix	*mat_identity(size_t row, size_t col);
 t_matrix	*mat_transpose(t_matrix *mat);
 t_matrix	*mat_dup(t_matrix *src);
+t_matrix	*mat_submat(t_matrix *src, size_t rm_row, size_t rm_col);
 double		mat_det(t_matrix *mat);
 t_matrix	*mat_inv(t_matrix *src);
 

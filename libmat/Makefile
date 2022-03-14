@@ -6,7 +6,7 @@
 #    By: kkaneko <kkaneko@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/14 21:29:02 by kkaneko           #+#    #+#              #
-#    Updated: 2022/03/15 02:43:26 by kkaneko          ###   ########.fr        #
+#    Updated: 2022/03/15 03:24:23 by kkaneko          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRCS_NORMAL	:=	mat_puterror.c \
 				mat_identity.c \
 				mat_transpose.c \
 				mat_dup.c \
+				mat_submat.c \
 				mat_det.c \
 				mat_inv.c
 SRCS_AFFINE :=	mat_rotation_x.c \
