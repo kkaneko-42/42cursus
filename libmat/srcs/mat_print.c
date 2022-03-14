@@ -6,7 +6,7 @@
 /*   By: kkaneko <kkaneko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 23:35:06 by kkaneko           #+#    #+#             */
-/*   Updated: 2022/03/14 23:44:56 by kkaneko          ###   ########.fr       */
+/*   Updated: 2022/03/15 02:19:27 by kkaneko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	mat_print(t_matrix *mat)
 		j = 0;
 		while (j < mat->col)
 		{
-			printf("%ld ", mat->values[i][j]);
+			printf("%f ", mat->values[i][j]);
 			++j;
 		}
 		printf("\n");

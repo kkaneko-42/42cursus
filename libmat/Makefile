@@ -6,7 +6,7 @@
 #    By: kkaneko <kkaneko@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/14 21:29:02 by kkaneko           #+#    #+#              #
-#    Updated: 2022/03/14 23:32:37 by kkaneko          ###   ########.fr        #
+#    Updated: 2022/03/15 02:43:26 by kkaneko          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,11 @@ SRCS_NORMAL	:=	mat_puterror.c \
 				mat_add.c \
 				mat_mul_scalar.c \
 				mat_mul.c \
-				mat_identity.c
+				mat_identity.c \
+				mat_transpose.c \
+				mat_dup.c \
+				mat_det.c \
+				mat_inv.c
 SRCS_AFFINE :=	mat_rotation_x.c \
 				mat_rotation_y.c \
 				mat_rotation_z.c \
@@ -26,7 +30,7 @@ SRCS_AFFINE :=	mat_rotation_x.c \
 				mat_zoom.c \
 				mat_vector_col.c \
 				mat_vector_row.c
-
+SRCS_DEBUG	:=	mat_print.c
 SRCS	:= $(SRCS_NORMAL)
 SRC_DIR	:= ./srcs
 VPATH	:= $(SRC_DIR)
@@ -40,6 +44,10 @@ CFLAGS	:= -Wall -Wextra -Werror -MMD -MP
 ifdef WITH_AFFINE
 	OBJS += $(addprefix $(OBJ_DIR)/, $(SRCS_AFFINE:.c=.o))
 	CFALGS += -lm
+endif
+
+ifdef WITH_DEBUG
+	OBJS += $(addprefix $(OBJ_DIR)/, $(SRCS_DEBUG:.c=.o))
 endif
 
 $(NAME): $(OBJ_DIR) $(OBJS)
@@ -64,6 +72,9 @@ re: fclean all
 affine:
 	make WITH_AFFINE=1
 
+debug:
+	make WITH_DEBUG=1
+
 -include: $(DEPS)
 
-.PHONY: all clean fclean re affine
+.PHONY: all clean fclean re affine debug
