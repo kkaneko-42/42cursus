@@ -41,7 +41,7 @@ Structure generated as a matrix.
 #### Prototype
 ```t_matrix	*mat_add(t_matrix *a, t_matrix *b)```
 #### Description
-Generates a new matrix that is the sum of matrix ```a``` and ```b```. If size of ```a```` is not equal to size of b, the message defined in the ```MAT_ADD_ERR``` macro is putted to stderr, and returns null pointer.
+Generates a new matrix that is the sum of matrix ```a``` and ```b```. If size of ```a``` is not equal to size of ```b```, the message defined in the ```MAT_ADD_ERR``` macro is putted to stderr, and returns null pointer.
 #### Return Value
 Matrix which is sum of ```a``` and ```b```. If add error occurs, returns null pointer.
 
