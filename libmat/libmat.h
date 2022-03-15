@@ -6,7 +6,7 @@
 /*   By: kkaneko <kkaneko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 21:28:01 by kkaneko           #+#    #+#             */
-/*   Updated: 2022/03/15 03:24:00 by kkaneko          ###   ########.fr       */
+/*   Updated: 2022/03/15 22:37:53 by kkaneko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ t_matrix	*mat_dup(t_matrix *src);
 t_matrix	*mat_submat(t_matrix *src, size_t rm_row, size_t rm_col);
 double		mat_det(t_matrix *mat);
 t_matrix	*mat_inv(t_matrix *src);
+double		mat_inner(t_matrix *a, t_matrix *b);
 
 /* affine */
 t_matrix	*mat_rotation_x(double alpha);
@@ -48,6 +49,7 @@ t_matrix	*mat_translation(double x, double y, double z);
 t_matrix	*mat_zoom(double x, double y, double z);
 t_matrix	*mat_vector_col(double x, double y, double z);
 t_matrix	*mat_vector_row(double x, double y, double z);
+double		mat_l2norm(t_matrix *matrix);
 
 /* debug */
 void		mat_print(t_matrix *mat);

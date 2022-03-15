@@ -6,7 +6,7 @@
 #    By: kkaneko <kkaneko@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/14 21:29:02 by kkaneko           #+#    #+#              #
-#    Updated: 2022/03/15 03:24:23 by kkaneko          ###   ########.fr        #
+#    Updated: 2022/03/15 22:38:06 by kkaneko          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ SRCS_NORMAL	:=	mat_puterror.c \
 				mat_dup.c \
 				mat_submat.c \
 				mat_det.c \
-				mat_inv.c
+				mat_inv.c \
+				mat_inner.c
 SRCS_AFFINE :=	mat_rotation_x.c \
 				mat_rotation_y.c \
 				mat_rotation_z.c \
@@ -30,7 +31,8 @@ SRCS_AFFINE :=	mat_rotation_x.c \
 				mat_translation.c \
 				mat_zoom.c \
 				mat_vector_col.c \
-				mat_vector_row.c
+				mat_vector_row.c \
+				mat_l2norm.c
 SRCS_DEBUG	:=	mat_print.c
 SRCS	:= $(SRCS_NORMAL)
 SRC_DIR	:= ./srcs
