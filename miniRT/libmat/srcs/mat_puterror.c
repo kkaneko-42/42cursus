@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   mat_puterror.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkaneko <kkaneko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/13 14:25:13 by kkaneko           #+#    #+#             */
-/*   Updated: 2022/03/16 21:48:48 by kkaneko          ###   ########.fr       */
+/*   Created: 2022/03/14 22:02:33 by kkaneko           #+#    #+#             */
+/*   Updated: 2022/03/14 22:03:14 by kkaneko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libmat.h"
-#include "libft.h"
+#include <unistd.h>
 
-int	main(int ac, char **av)
+static size_t	mat_strlen(const char *str);
+
+void	mat_puterror(const char *msg)
 {
-	printf("hello, world!\n");
-	return (0);
+	write(2, msg, mat_strlen(msg));
+}
+
+static size_t	mat_strlen(const char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i] != 0x00)
+		++i;
+	return (i);
 }

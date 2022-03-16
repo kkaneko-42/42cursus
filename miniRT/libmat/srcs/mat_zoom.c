@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   mat_zoom.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkaneko <kkaneko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/13 14:25:13 by kkaneko           #+#    #+#             */
-/*   Updated: 2022/03/16 21:48:48 by kkaneko          ###   ########.fr       */
+/*   Created: 2022/03/14 22:55:05 by kkaneko           #+#    #+#             */
+/*   Updated: 2022/03/14 22:56:11 by kkaneko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libmat.h"
-#include "libft.h"
 
-int	main(int ac, char **av)
+t_matrix	*mat_zoom(double x, double y, double z)
 {
-	printf("hello, world!\n");
-	return (0);
+	t_matrix	*res;
+
+	res = mat_identity(4, 4);
+	res->values[0][0] = x;
+	res->values[1][1] = y;
+	res->values[2][2] = z;
+	return (res);
 }

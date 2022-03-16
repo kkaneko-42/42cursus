@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   mat_vector_col.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkaneko <kkaneko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/13 14:25:13 by kkaneko           #+#    #+#             */
-/*   Updated: 2022/03/16 21:48:48 by kkaneko          ###   ########.fr       */
+/*   Created: 2022/03/14 23:16:13 by kkaneko           #+#    #+#             */
+/*   Updated: 2022/03/14 23:17:31 by kkaneko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libmat.h"
-#include "libft.h"
 
-int	main(int ac, char **av)
+t_matrix	*mat_vector_col(double x, double y, double z)
 {
-	printf("hello, world!\n");
-	return (0);
+	t_matrix	*res;
+
+	res = mat_new(4, 1);
+	res->values[0][0] = x;
+	res->values[1][0] = y;
+	res->values[2][0] = z;
+	res->values[3][0] = 1;
+	return (res);
 }

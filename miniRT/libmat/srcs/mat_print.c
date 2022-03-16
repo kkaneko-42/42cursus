@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   mat_print.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkaneko <kkaneko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/13 14:25:13 by kkaneko           #+#    #+#             */
-/*   Updated: 2022/03/16 21:48:48 by kkaneko          ###   ########.fr       */
+/*   Created: 2022/03/14 23:35:06 by kkaneko           #+#    #+#             */
+/*   Updated: 2022/03/15 02:19:27 by kkaneko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libmat.h"
-#include "libft.h"
+#include <stdio.h>
 
-int	main(int ac, char **av)
+void	mat_print(t_matrix *mat)
 {
-	printf("hello, world!\n");
-	return (0);
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	while (i < mat->row)
+	{
+		j = 0;
+		while (j < mat->col)
+		{
+			printf("%f ", mat->values[i][j]);
+			++j;
+		}
+		printf("\n");
+		++i;
+	}
 }
