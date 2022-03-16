@@ -4,7 +4,9 @@
 
 int main( int ac, char **av)
 {
-	(void)ac;
+	if (ac != 2)
+		return (0);
+
 	std::string input(av[1]);
 	Zombie *res;
 

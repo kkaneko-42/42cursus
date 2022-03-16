@@ -4,7 +4,9 @@
 
 int main( int ac, char **av)
 {
-	(void)ac;
+	if (ac != 2)
+		return (0);
+
 	const int nb_zombies = 10;
 	std::string input(av[1]);
 	Zombie *res = zombieHorde(nb_zombies, input);
