@@ -9,7 +9,7 @@ class HumanA
 		void attack( void ) const;
 	private:
 		std::string name;
-		Weapon &weapon;
+		Weapon weapon;
 };
 
 #endif //HUMAN_A_HPP
