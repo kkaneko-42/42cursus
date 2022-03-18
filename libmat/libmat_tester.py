@@ -7,6 +7,8 @@ RESET = "\033[0m"
 RED = "\033[31m"
 GREEN = "\033[42m"
 TMP_FILES = {"libmat.so"}
+ROW = 4
+COL = 4
 
 def main():
 	if (	build()
@@ -50,6 +52,10 @@ def function_test():
 		return (1)
 	else
 		return (0)
+
+def mat_mul_scalar_test(libmat):
+	type(libmat.mat_mul_scalar())
+	
 
 def remove_tmpfiles():
 	for file in TMP_FILES:
