@@ -1,7 +1,7 @@
 NAME	:= a.out
 SRCS	:= main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 SRC_DIR := .
-INC_DIR := ./includes
+INC_DIR := ./
 OBJ_DIR := ./objs
 OBJS	:= $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 DEPS 	:= $(OBJS:.o=.d)
@@ -20,7 +20,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 all: $(NAME)
 
 clean:
-	rm -rf $(OBJ_DIR) $(DEPS)
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
 	rm -f $(NAME)

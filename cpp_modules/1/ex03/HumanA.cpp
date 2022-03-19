@@ -3,13 +3,9 @@
 #include "Weapon.hpp"
 #include "HumanA.hpp"
 
-HumanA::HumanA( std::string &name, Weapon &weapon )
-{
-	this->name = name;
-	this->weapon = weapon;
-}
+HumanA::HumanA( std::string name, Weapon &weapon ) : name(name), weapon(weapon){}
 
-void HumanA::attack( void ) const
+void HumanA::attack( void )
 {
 	const std::string attack_msg = " attacks with their ";
 

@@ -1,10 +1,14 @@
 #include <iostream>
-#include <string>
 #include "Weapon.hpp"
 
 Weapon::Weapon( std::string type )
 {
 	this->setType(type);
+}
+
+Weapon::Weapon( void )
+{
+	std::cout << "in!!" << std::endl;
 }
 
 const std::string &Weapon::getType( void )
