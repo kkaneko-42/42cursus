@@ -24,6 +24,15 @@ Fixed::~Fixed( void )
 	std::cout << msg << std::endl;
 }
 
+Fixed &Fixed::operator =( const Fixed &src )
+{
+	const std::string msg = "Assignation operator called";
+
+	std::cout << msg << std::endl;
+	this->setRawBits(src.raw_bits_);
+	return (*this);
+}
+
 int Fixed::getRawBits( void ) const
 {
 	const std::string msg = "getRawBits member function called";
