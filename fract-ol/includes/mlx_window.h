@@ -6,7 +6,7 @@
 /*   By: kkaneko <kkaneko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 02:08:51 by kkaneko           #+#    #+#             */
-/*   Updated: 2022/03/14 02:11:53 by kkaneko          ###   ########.fr       */
+/*   Updated: 2022/03/28 10:40:32 by kkaneko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,5 @@ typedef struct s_window
 
 void		my_mlx_pixel_put(t_window *window, int x, int y, int color);
 t_window	*init_window(int width, int height, char *title);
-void		window_close_hook(t_window *window, int (*exit)(void), void *param);
 
 #endif

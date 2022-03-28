@@ -20,15 +20,6 @@ t_window	*init_window(int width, int height, char *title)
 	return (res);
 }
 
-void	window_close_hook(t_window *window, int (*exit)(void), void *param)
-{
-	mlx_hook(window->mlx_win,
-			EV_CROSS_BUTTON,
-			(1L << EV_CROSS_BUTTON),
-			(*exit),
-			param);
-}
-
 void	my_mlx_pixel_put(t_window *window, int x, int y, int color)
 {
 	char	*dst;
