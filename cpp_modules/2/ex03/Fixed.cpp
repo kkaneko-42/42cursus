@@ -30,7 +30,7 @@ Fixed::~Fixed( void )
 
 Fixed &Fixed::operator =( const Fixed &src )
 {
-	this->setRawBits(src.getRawBits());
+	this->raw_bits_ = src.getRawBits();
 	return (*this);
 }
 

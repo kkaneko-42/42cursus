@@ -21,9 +21,9 @@ class Fixed
 		Fixed operator *( const Fixed &rhs ) const;
 		Fixed operator /( const Fixed &rhs ) const;
 		Fixed &operator ++( void );
-		Fixed operator ++( int );
+		Fixed operator ++( int n );
 		Fixed &operator --( void );
-		Fixed operator --( int );
+		Fixed operator --( int n );
 
 		int getRawBits( void ) const;
 		void setRawBits( int const raw );
