@@ -26,10 +26,10 @@ Fixed::~Fixed( void )
 
 Fixed &Fixed::operator =( const Fixed &src )
 {
-	const std::string msg = "Assignation operator called";
+	const std::string msg = "Copy assignment operator called";
 
 	std::cout << msg << std::endl;
-	this->setRawBits(src.raw_bits_);
+	this->raw_bits_ = src.getRawBits();
 	return (*this);
 }
 
