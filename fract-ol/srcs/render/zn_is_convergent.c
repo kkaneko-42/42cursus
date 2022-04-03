@@ -6,7 +6,7 @@
 /*   By: kkaneko <kkaneko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 14:14:04 by kkaneko           #+#    #+#             */
-/*   Updated: 2022/03/28 16:07:11 by kkaneko          ###   ########.fr       */
+/*   Updated: 2022/03/30 01:32:48 by kkaneko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,17 @@ int	zn_is_convergent(t_complex *z, t_complex *c, size_t cnt_cal)
 	t_complex	*z_next;
 	int			res;
 
-	//printf("|z|:%f\n", z->abs);
+	printf("z_%zu: %f + %f i\n", cnt_cal, z->re, z->im);
 	if (z->abs > 2)
+	{
+		printf("Divergent!!!\n");
 		return (0);
+	}
 	else if (check_convergent(z, c, cnt_cal))
+	{
+		printf("Convergent!\n");
 		return (1);
+	}
 	else
 	{
 		z_next = get_next_z(z, c);

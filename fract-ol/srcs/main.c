@@ -6,7 +6,7 @@
 /*   By: kkaneko <kkaneko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 01:52:03 by kkaneko           #+#    #+#             */
-/*   Updated: 2022/03/28 15:09:20 by kkaneko          ###   ########.fr       */
+/*   Updated: 2022/03/30 01:09:57 by kkaneko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ int	main(int ac, char **av)
 	validate_args(ac, av);
 	window = init_window(WIN_W, WIN_H, WIN_TITLE);
 	if (ft_strncmp(av[1], JULIA, ft_strlen(av[1]) + 1) == 0)
-		draw_julia(window, ft_atoi(av[2]), ft_atoi(av[3]), DEFAULT_MAX_R);
+		draw_julia(window, ft_atoi(av[2]), ft_atoi(av[3]));
 	else if (ft_strncmp(av[1], MANDELBROT, ft_strlen(av[1]) + 1) == 0)
-		draw_mandelbrot(window, ft_atoi(av[2]), ft_atoi(av[3]), DEFAULT_MAX_R);
+		draw_mandelbrot(window, ft_atoi(av[2]), ft_atoi(av[3]));
 	else
 		exit_with_usage();
 	//set_hooks(window);
