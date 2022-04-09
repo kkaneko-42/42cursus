@@ -1,17 +1,15 @@
 #include <iostream>
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main( void )
 {
 	ClapTrap nameless;
 	ClapTrap kkaneko("kkaneko");
-	ClapTrap enemy("enemy");
-	ClapTrap clone(kkaneko);
+	ScavTrap enemy("enemy");
 
 	kkaneko.attack("enemy");
 	enemy.attack("kkaneko");
-	kkaneko.beRepaired(10);
-	kkaneko.attack("enemy");
+	enemy.guardGate();
 
 	return (0);
 }

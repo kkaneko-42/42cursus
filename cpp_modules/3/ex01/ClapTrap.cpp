@@ -39,10 +39,14 @@ ClapTrap::~ClapTrap( void )
 
 ClapTrap &ClapTrap::operator =( const ClapTrap &rhs )
 {
+	const std::string msg = ": Assignation operator called";
+
 	this->name_ = rhs.name_;
 	this->hp_ = rhs.hp_;
 	this->ep_ = rhs.ep_;
 	this->attack_damage_ = rhs.attack_damage_;
+
+	std::cout << this->name_ << msg << std::endl;
 
 	return (*this);
 }
@@ -109,6 +113,16 @@ bool ClapTrap::isFine( void ) const
 		return (false);
 	else
 		return (true);
+}
+
+void ClapTrap::setMembers( const std::string &name ,
+							unsigned int hp, unsigned int ep,
+							unsigned int attack_dmg)
+{
+	this->name_ = name;
+	this->hp_ = hp;
+	this->ep_ = ep;
+	this->attack_damage_ = attack_dmg;
 }
 
 static void putFaintedMsg( const std::string &name )

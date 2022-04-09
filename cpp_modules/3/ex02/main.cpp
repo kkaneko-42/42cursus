@@ -1,17 +1,15 @@
 #include <iostream>
-#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
 
 int main( void )
 {
 	ClapTrap nameless;
 	ClapTrap kkaneko("kkaneko");
-	ClapTrap enemy("enemy");
-	ClapTrap clone(kkaneko);
+	FragTrap enemy("enemy");
 
 	kkaneko.attack("enemy");
 	enemy.attack("kkaneko");
-	kkaneko.beRepaired(10);
-	kkaneko.attack("enemy");
+	enemy.highFivesGuys();
 
 	return (0);
 }
