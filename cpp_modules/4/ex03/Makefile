@@ -1,6 +1,6 @@
 NAME	:= a.out
 VPATH	:= ./:./src
-SRCS	:= main.cpp Dog.cpp Cat.cpp Animal.cpp Brain.cpp AAnimal.cpp
+SRCS	:= main.cpp
 SRC_DIR := .
 INC_DIR := ./include
 OBJ_DIR := ./objs
