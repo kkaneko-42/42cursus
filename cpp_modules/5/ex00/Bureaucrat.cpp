@@ -8,11 +8,10 @@ Bureaucrat::Bureaucrat( void ) : name_(""), grade_(150)
 	std::cout << kMsg << std::endl;
 }
 
-Bureaucrat::Bureaucrat( const Bureaucrat &src )
+Bureaucrat::Bureaucrat( const Bureaucrat &src ) : name_(src.getName()), grade_(src.getGrade())
 {
 	const std::string kMsg = "copy constructor called";
 
-	*this = src;
 	std::cout << kMsg << std::endl;
 }
 
