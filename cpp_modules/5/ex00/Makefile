@@ -1,5 +1,5 @@
 NAME	:= a.out
-SRCS	:= main.cpp Bureaucrat.cpp
+SRCS	:= main.cpp Bureaucrat.cpp GradeException.cpp
 SRC_DIR := .
 INC_DIR := ./
 OBJ_DIR := ./objs

@@ -5,21 +5,8 @@
 #include <iostream>
 #include <exception>
 
-class GradeException : public std::exception
-{
-	public:
-		GradeException( const std::string &name );
-		virtual std::string const &what( void ) throw();
-	private:
-		const std::string name;
-};
-
 class Bureaucrat
 {
-	typedef GradeException GradeTooHighException;
-	typedef GradeException GradeTooLowException;
-	typedef GradeException GradeIsOutOfRange;
-
 	public:
 		Bureaucrat( void );
 		Bureaucrat( const Bureaucrat &src );
@@ -30,10 +17,43 @@ class Bureaucrat
 
 		Bureaucrat &operator =( const Bureaucrat &rhs );
 
-		std::string const getName( void ) const;
+		std::string const &getName( void ) const;
 		int getGrade( void ) const;
 		void Promote( void );
 		void Demote( void );
+
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				GradeTooHighException( const std::string &name );
+				virtual ~GradeTooHighException( void ) throw();
+				virtual const char *what( void ) const throw();
+			private:
+				std::string name_;
+				char *msg;
+		};
+
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				GradeTooLowException( const std::string &name );
+				virtual ~GradeTooLowException( void ) throw();
+				virtual const char *what( void ) const throw();
+			private:
+				std::string name_;
+				char *msg;
+		};
+
+		class GradeIsOutOfRange : public std::exception
+		{
+			public:
+				GradeIsOutOfRange( const std::string &name );
+				virtual ~GradeIsOutOfRange( void ) throw();
+				virtual const char *what( void ) const throw();
+			private:
+				std::string name_;
+				char *msg;
+		};
 
 	private:
 		const std::string name_;

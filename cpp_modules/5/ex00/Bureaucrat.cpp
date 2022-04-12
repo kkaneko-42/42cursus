@@ -23,10 +23,16 @@ Bureaucrat::Bureaucrat( const std::string &name ) : name_(name), grade_(150)
 	std::cout << kMsg << std::endl;
 }
 
-Bureaucrat::Bureaucrat( const std::string &name, const int grade ) : name_(name), grade_(grade)
+Bureaucrat::Bureaucrat( const std::string &name, const int grade ) : name_(name)
 {
 	const std::string kMsg = "Naming and Grading constructor called";
 
+	if (grade < 1)
+		throw Bureaucrat::GradeTooLowException(this->getName());
+	else if (grade > 150)
+		throw Bureaucrat::GradeTooHighException(this->getName());
+	else
+		this->grade_ = grade;
 	std::cout << kMsg << std::endl;
 }
 
@@ -35,9 +41,9 @@ Bureaucrat::Bureaucrat( const int grade ) : name_("")
 	const std::string kMsg = "Grading constructor called";
 
 	if (grade < 1)
-		throw Bureaucrat::GradeTooLowException();
+		throw Bureaucrat::GradeTooLowException(this->getName());
 	else if (grade > 150)
-		throw Bureaucrat::GradeTooHighException();
+		throw Bureaucrat::GradeTooHighException(this->getName());
 	else
 		this->grade_ = grade;
 
@@ -57,7 +63,7 @@ Bureaucrat &Bureaucrat::operator =( const Bureaucrat &rhs )
 
 	if (this != &rhs)
 	{
-		*this = Bureaucrat(rhs.getName(), rhs.getGrade());
+		this->grade_ = rhs.getGrade();
 	}
 	std::cout << kMsg << std::endl;
 
@@ -67,11 +73,11 @@ Bureaucrat &Bureaucrat::operator =( const Bureaucrat &rhs )
 std::ostream &operator <<( std::ostream &out, const Bureaucrat &src )
 {
 	out << src.getName() + ", " << "bureaucrat grade ";
-	out << src.getGrade() + "." << std::endl;
+	out << src.getGrade() << "." << std::endl;
 	return (out);
 }
 
-std::string const Bureaucrat::getName( void ) const
+std::string const &Bureaucrat::getName( void ) const
 {
 	return (this->name_);
 }
@@ -84,7 +90,7 @@ int Bureaucrat::getGrade( void ) const
 void Bureaucrat::Promote( void )
 {
 	if (this->getGrade() == 1)
-		throw Bureaucrat::GradeIsOutOfRange();
+		throw Bureaucrat::GradeIsOutOfRange(this->getName());
 	else
 		this->grade_ -= 1;
 }
@@ -92,7 +98,7 @@ void Bureaucrat::Promote( void )
 void Bureaucrat::Demote( void )
 {
 	if (this->getGrade() == 150)
-		throw Bureaucrat::GradeIsOutOfRange();
+		throw Bureaucrat::GradeIsOutOfRange(this->getName());
 	else
 		this->grade_ += 1;
 }
