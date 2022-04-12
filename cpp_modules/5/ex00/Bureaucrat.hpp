@@ -5,15 +5,20 @@
 #include <iostream>
 #include <exception>
 
+class GradeException : public std::exception
+{
+	public:
+		GradeException( const std::string &name );
+		virtual std::string const &what( void ) throw();
+	private:
+		const std::string name;
+};
+
 class Bureaucrat
 {
-	class GradeException : public std::exception
-	{
-		public:
-			std::string const &what( void );
-		private:
-			std::string msg;
-	};
+	typedef GradeException GradeTooHighException;
+	typedef GradeException GradeTooLowException;
+	typedef GradeException GradeIsOutOfRange;
 
 	public:
 		Bureaucrat( void );
