@@ -51,6 +51,7 @@ Form &Form::operator =( const Form &rhs )
 		this->is_signed_ = rhs.getIsSigned();
 	}
 	std::cout << kMsg << std::endl;
+	return (*this);
 }
 
 std::ostream &operator <<( std::ostream &out, const Form &rhs )

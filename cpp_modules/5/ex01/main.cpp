@@ -3,62 +3,78 @@
 #include "Form.hpp"
 
 static void occf_test( void );
-static void promote_test( void );
-static void demote_test( void );
+static void beSignedTest( void );
+static void signFormTest( void );
 
 int main( void )
 {
+	std::cout << "@@@@@ occf test @@@@@" << std::endl;
 	occf_test();
-	promote_test();
-	demote_test();
+	std::cout << "@@@@@ besigned test @@@@@" << std::endl;
+	beSignedTest();
+	std::cout << "@@@@@ sign form test @@@@@" << std::endl;
+	signFormTest();
 	return (0);
 }
 
 static void occf_test( void )
 {
-	Bureaucrat default_construct;
-	Bureaucrat name_construct("kkaneko");
-	Bureaucrat grade_construct(42);
-	Bureaucrat name_and_grade_construct("kkaneko", 42);
-	Bureaucrat assign = name_construct;
-	Bureaucrat copy(grade_construct);
+	Form default_construct;
+	Form params_construct("order", 24, 42);
+	try
+	{
+		Form ko_construct("ko", 151, 160);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 
-	std::cout << assign << std::endl;
+	Form assign = params_construct;
+	Form copy(params_construct);
+
+	std::cout << params_construct << std::endl;
 	std::cout << copy << std::endl;
 }
 
-static void promote_test( void )
+static void beSignedTest( void )
 {
-	Bureaucrat kkaneko("kkaneko", 2);
+	Form form("order", 42, 42);
+	Bureaucrat ok("ok", 42);
+	Bureaucrat ko("ko", 43);
 
-	for (int i = 0; i < 3; ++i)
+	std::cout << form << std::endl;
+	try
 	{
-		std::cout << kkaneko << std::endl;
-		try
-		{
-			kkaneko.Promote();
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << std::endl;
-		}
+		form.beSigned(ko);
 	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;;
+	}
+
+	std::cout << form << std::endl;
+	try
+	{
+		form.beSigned(ok);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;;
+	}
+
+	std::cout << form << std::endl;
 }
 
-static void demote_test( void )
+static void signFormTest( void )
 {
-	Bureaucrat kkaneko("kkaneko", 149);
+	Form form("order", 1, 42);
+	Bureaucrat ok("ok", 1);
+	Bureaucrat ko("ko", 2);
 
-	for (int i = 0; i < 3; ++i)
-	{
-		std::cout << kkaneko << std::endl;
-		try
-		{
-			kkaneko.Demote();
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << std::endl;
-		}
-	}
+	std::cout << form << std::endl;
+	ko.signForm(form);
+	std::cout << form << std::endl;
+	ok.signForm(form);
+	std::cout << form << std::endl;
 }
