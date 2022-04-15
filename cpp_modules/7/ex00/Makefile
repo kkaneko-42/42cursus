@@ -1,7 +1,7 @@
-NAME	:= convert
-VPATH	:= ./src
+NAME	:= a.out
 SRCS	:= main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
-INC_DIR := ./include
+SRC_DIR := .
+INC_DIR := ./
 OBJ_DIR := ./objs
 OBJS	:= $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 DEPS 	:= $(OBJS:.o=.d)
