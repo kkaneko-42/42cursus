@@ -2,12 +2,14 @@
 #define EASYFIND_HPP
 
 template <class T>
-T &easyfind(T &container, int n)
+typename T::iterator easyfind(T &container, int n)
 {
-	const T::const_iterator kItEnd = container.end();
-	T::const_iterator it = container.begin();
+	const typename T::iterator kItEnd = container.end() - 1;
+	typename T::iterator it = container.begin();
 
-	while (*it != kItEnd && *it != n)
+	std::cout << "start: " << *it << std::endl;
+	std::cout << "end: " << *kItEnd << std::endl;
+	while (it != kItEnd && *it != n)
 		++it;
 	return (it);
 }

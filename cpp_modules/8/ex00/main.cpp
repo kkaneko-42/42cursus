@@ -5,8 +5,11 @@
 
 int main(void)
 {
-	std::vector<int> v = {1, 2, 3, 4, 5};
+	int mirror[] = {1, 2, 3, 4, 5};
+	std::vector<int> v;
 
-	std::cout << *easyfind(v, 3) << std::endl;
-	std::cout << 
+	v.assign(&mirror[0], &mirror[5]);
+	std::cout << *easyfind< std::vector<int> >(v, 5) << std::endl;
+	std::cout << *easyfind< std::vector<int> >(v, 10) << std::endl;
+	return (0);
 }
