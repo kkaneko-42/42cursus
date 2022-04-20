@@ -47,6 +47,8 @@
 		"cinttypes": "cpp",
 		"typeinfo": "cpp",
 		"bit": "cpp",
-		"*.tpp": "cpp"
+		"*.tpp": "cpp",
+		"cstring": "cpp",
+		"unistd.h": "c"
 	}
 }
