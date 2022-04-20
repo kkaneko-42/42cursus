@@ -1,5 +1,5 @@
-NAME	:= a.out
-SRCS	:= main.cpp
+NAME	:= ex01
+SRCS	:= main.cpp Span.cpp
 SRC_DIR := .
 INC_DIR := ./
 OBJ_DIR := ./objs
