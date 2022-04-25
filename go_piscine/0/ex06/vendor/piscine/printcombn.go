@@ -2,21 +2,14 @@ package piscine
 
 import "ft"
 
-func FtPow10(a int) int {
-	var res int = 1
-
-	for a > 0 {
-		res *= 10
-		a--
-	}
-	return (res)
-}
-
-func PrintNDigitNumber(nbr int, digit int) {
+func PrintNumber(nbr int) {
 	var zero_ascii int = '0'
 
-	for digit > 0 {
-		digit--
+	if nbr < 10 {
+		ft.PrintRune(rune(nbr + zero_ascii))
+	} else {
+		PrintNumber(nbr / 10)
+		PrintNumber(nbr % 10)
 	}
 }
 
@@ -27,8 +20,13 @@ func PrintSep(i int, j int) {
 	}
 }
 
-func PrintCombRecursive(nbr int) {
+func PrintCombRecursive(nbr int, n int) {
+	var zero_ascii int = '0'
 
+	if nbr/10 == 0 {
+		ft.PrintRune(rune(nbr + zero_ascii))
+	}
+	PrintCombRecursive(nbr / 10)
 }
 
 func PrintCombN(n int) {
