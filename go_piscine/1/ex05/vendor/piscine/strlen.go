@@ -3,8 +3,8 @@ package piscine
 func StrLen(s string) int {
 	var len int = 0
 
-	for i, _ := range s {
-		len = i
+	for range s {
+		len++;
 	}
-	return len + 1
+	return len
 }

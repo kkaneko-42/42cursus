@@ -1,20 +1,19 @@
 package piscine
 
-func SwapRune(a *rune, b *rune) {
-	tmp := *a
-	*a = *b
-	*b = tmp
-}
-
 func StrLen(s string) int {
 	var len int = 0
 
-	for i, _ := range s {
-		len = i
+	for range s {
+		len++
 	}
-	return len + 1
+	return len
 }
 
 func StrRev(s string) string {
+	var res []rune
+	s_len := StrLen(s)
 
+	for i, c range s {
+		res[i]
+	}
 }
