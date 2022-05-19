@@ -2,4 +2,8 @@
 
 FROM alpine:3.15
 
-ENTRYPOINT apk add --update-cache --no-cache mariadb
+MAINTAINER kkaneko
+
+EXPOSE 3306
+
+RUN apk add --update-cache --no-cache mariadb

@@ -1,8 +1,12 @@
-version: '3'
+version: "3"
 services:
-  nginx:
+  mariadb:
     build:
-      context: ./requirements/nginx
+      context: ./requirements/mariadb
       dockerfile: Dockerfile
-    ports:
-      - "443:443"
+    volumes:
+      - /home/kkaneko/data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
