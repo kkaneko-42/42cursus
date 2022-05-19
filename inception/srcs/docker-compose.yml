@@ -1,9 +1,8 @@
 version: "3"
 services:
   mariadb:
-    build:
-      context: ./requirements/mariadb
-      dockerfile: Dockerfile
+    build: ./requirements/mariadb
+    stdin_open: true
     volumes:
       - /home/kkaneko/data:/var/lib/mysql
     environment:

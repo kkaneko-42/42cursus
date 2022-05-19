@@ -5,4 +5,9 @@ $(NAME):
 
 all: $(NAME)
 
-.PHONY: $(NAME) all
+fclean:
+	docker-compose down
+
+re: fclean all
+
+.PHONY: $(NAME) all fclean re
