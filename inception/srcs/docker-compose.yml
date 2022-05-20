@@ -1,5 +1,13 @@
 version: "3"
 services:
+  nginx:
+    build: ./requirements/nginx
+    stdin_open: true
+    ports:
+      - 334:334
+    environment:
+      DOMAIN_NAME: ${DOMAIN_NAME}
+      CERTS: ${CERTS}
   mariadb:
     build: ./requirements/mariadb
     stdin_open: true
