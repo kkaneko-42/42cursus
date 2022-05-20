@@ -4,10 +4,13 @@ services:
     build: ./requirements/nginx
     stdin_open: true
     ports:
-      - 334:334
+      - 4242:443
     environment:
       DOMAIN_NAME: ${DOMAIN_NAME}
       CERTS: ${CERTS}
+  wordpress:
+    build: ./requirements/wordpress
+    stdin_open: true
   mariadb:
     build: ./requirements/mariadb
     stdin_open: true
