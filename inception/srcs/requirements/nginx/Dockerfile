@@ -2,9 +2,9 @@
 
 FROM alpine:3.15
 
-MAINTAINER kkaneko
-
 RUN apk add --update-cache --no-cache nginx
+
+EXPOSE 443
 
 COPY ./nginx.conf /etc/nginx
 
