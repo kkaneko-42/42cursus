@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkaneko </var/mail/kkaneko>                +#+  +:+       +#+        */
+/*   By: kkaneko <kkaneko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 14:56:54 by kkaneko           #+#    #+#             */
-/*   Updated: 2022/01/10 20:57:32 by kkaneko          ###   ########.fr       */
+/*   Updated: 2022/06/02 15:09:22 by kkaneko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*res;
 	size_t	res_len;
-	size_t	tmp;
 
 	if (s1 == NULL || s2 == NULL)
 		return (NULL);
@@ -25,8 +24,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	res = (char *)malloc(sizeof(char) * (res_len + 1));
 	if (res == NULL)
 		return (NULL);
-	tmp = ft_strlcpy(res, s1, ft_strlen(s1) + 1);
-	tmp = ft_strlcat(res, s2, res_len + 1);
+	ft_strlcpy(res, s1, ft_strlen(s1) + 1);
+	ft_strlcat(res, s2, res_len + 1);
 	return (res);
 }
 /*

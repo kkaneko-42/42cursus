@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkaneko </var/mail/kkaneko>                +#+  +:+       +#+        */
+/*   By: kkaneko <kkaneko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 06:24:09 by kkaneko           #+#    #+#             */
-/*   Updated: 2022/01/09 16:14:08 by kkaneko          ###   ########.fr       */
+/*   Updated: 2022/06/02 15:08:57 by kkaneko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	while (i < n)
 	{
 		if (c_str[i] == c_c)
-			return ((void *)&s[i]);
+			return ((void *)&c_str[i]);
 		++i;
 	}
 	return (NULL);
